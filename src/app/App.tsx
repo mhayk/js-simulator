@@ -8,6 +8,7 @@ import { BroadcastSimulator } from "./pages/BroadcastSimulator";
 import { LibuvExplorer } from "./pages/LibuvExplorer";
 import { NetworkExplorer } from "./pages/NetworkExplorer";
 import { EventEmitterExplorer } from "./pages/EventEmitterExplorer";
+import { StreamsExplorer } from "./pages/StreamsExplorer";
 import { Settings } from "./pages/Settings";
 import { ComingSoon } from "./pages/ComingSoon";
 import { NAV_ITEMS } from "./nav";
@@ -27,6 +28,8 @@ export function App() {
             <Route path="libuv" element={<LibuvExplorer />} />
             <Route path="network" element={<NetworkExplorer />} />
             <Route path="emitter" element={<EventEmitterExplorer />} />
+            <Route path="streams" element={<StreamsExplorer />} />
+            <Route path="backpressure" element={<StreamsExplorer initialMode="backpressure" />} />
             <Route path="settings" element={<Settings />} />
             {SOON_ROUTES.map((item) => (
               <Route

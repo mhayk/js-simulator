@@ -26,8 +26,8 @@ export const NAV_ITEMS: NavItem[] = [
   { to: "/network", label: "Network I/O", glyph: "≋", rt: "network", section: "Deep dives" },
   { to: "/websocket", label: "WebSocket", glyph: "⇄", rt: "websocket", section: "Deep dives" },
   { to: "/broadcast", label: "Broadcast & Rooms", glyph: "⋔", rt: "websocket", section: "Deep dives" },
-  { to: "/streams", label: "Streams", glyph: "≈", rt: "streams", section: "Deep dives", soon: true },
-  { to: "/backpressure", label: "Backpressure", glyph: "⊗", rt: "backpressure", section: "Deep dives", soon: true },
+  { to: "/streams", label: "Streams", glyph: "≈", rt: "streams", section: "Deep dives" },
+  { to: "/backpressure", label: "Backpressure", glyph: "⊗", rt: "backpressure", section: "Deep dives" },
   { to: "/emitter", label: "EventEmitter", glyph: "⊹", rt: "emitter", section: "Deep dives" },
   { to: "/workers", label: "Worker Threads", glyph: "◑", rt: "worker", section: "Deep dives", soon: true },
 
