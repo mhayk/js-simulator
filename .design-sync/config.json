@@ -1,0 +1,22 @@
+{
+  "projectId": "2bdee318-0707-4fe9-a918-c7ffd5235b38",
+  "shape": "package",
+  "pkg": "js-simulator",
+  "globalName": "JsSimulator",
+  "buildCmd": "npm run build",
+  "cssEntry": "dist/js-simulator.css",
+  "readmeHeader": ".design-sync/conventions.md",
+  "overrides": {
+    "Card": { "cardMode": "column" },
+    "Input": { "cardMode": "column" },
+    "Console": { "cardMode": "column" },
+    "CodeViewer": { "cardMode": "column" },
+    "Timeline": { "cardMode": "column" },
+    "MediaControls": { "cardMode": "column" },
+    "MessageToken": { "cardMode": "column" },
+    "RuntimeNode": { "cardMode": "column" },
+    "StatusBadge": { "cardMode": "column" },
+    "Select": { "cardMode": "column" },
+    "SegmentedControl": { "cardMode": "column" }
+  }
+}
