@@ -1,0 +1,94 @@
+.ds-console {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-0);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  overflow: hidden;
+  min-height: 0;
+}
+
+.ds-console__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+}
+.ds-console__header-count {
+  margin-left: auto;
+  color: var(--color-text-subtle);
+}
+
+.ds-console__body {
+  overflow-y: auto;
+  padding: var(--space-sm) 0;
+  flex: 1;
+}
+
+.ds-console__line {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding: 2px var(--space-md);
+  border-left: 2px solid transparent;
+}
+.ds-console__line + .ds-console__line {
+  border-top: 1px solid color-mix(in srgb, var(--color-border) 40%, transparent);
+}
+
+.ds-console__gutter {
+  color: var(--color-text-subtle);
+  font-size: var(--font-size-2xs);
+  flex: none;
+  min-width: 2.5ch;
+  text-align: right;
+  user-select: none;
+}
+
+.ds-console__level {
+  flex: none;
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-caps);
+  min-width: 4ch;
+}
+
+.ds-console__text {
+  color: var(--color-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ds-console__line--log .ds-console__level { color: var(--color-text-subtle); }
+.ds-console__line--info { border-left-color: var(--color-info-500); }
+.ds-console__line--info .ds-console__level { color: var(--color-info-500); }
+.ds-console__line--warn { border-left-color: var(--color-warning-500); }
+.ds-console__line--warn .ds-console__level { color: var(--color-warning-500); }
+.ds-console__line--warn .ds-console__text { color: var(--color-warning-500); }
+.ds-console__line--error { border-left-color: var(--color-danger-500); }
+.ds-console__line--error .ds-console__level { color: var(--color-danger-500); }
+.ds-console__line--error .ds-console__text { color: var(--color-danger-500); }
+
+/* Newest line, briefly highlighted */
+.ds-console__line--fresh {
+  animation: ds-console-in var(--duration-base) var(--ease-standard);
+}
+@keyframes ds-console-in {
+  from { background: var(--state-current-soft); }
+  to { background: transparent; }
+}
+
+.ds-console__empty {
+  padding: var(--space-lg) var(--space-md);
+  color: var(--color-text-subtle);
+  font-style: italic;
+}

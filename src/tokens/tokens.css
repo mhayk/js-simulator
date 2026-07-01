@@ -1,0 +1,206 @@
+/**
+ * Design tokens — the single source of truth for JavaScript Runtime Simulator.
+ *
+ * Dark mode is the default (`:root`); a light theme overrides via
+ * `[data-theme="light"]`. Everything is styled from these vars — components
+ * never hard-code values, so re-theming means overriding tokens.
+ *
+ * Semantic runtime colors (Call Stack, Event Loop, libuv, …) are stable across
+ * themes: they are the product's visual language and must stay recognizable.
+ * Colour is never the ONLY signal — components pair it with icon + label.
+ */
+
+:root {
+  /* ---- Brand (indigo/violet) ---- */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+
+  /* ---- Neutral surfaces & text (DARK default) ---- */
+  --color-surface-0: #0b0f1a; /* app background */
+  --color-surface-1: #111725; /* panels */
+  --color-surface-2: #1a2234; /* raised cards */
+  --color-surface-3: #232d42; /* hover / inset */
+  --color-border: #2a3550;
+  --color-border-strong: #3b4a6b;
+  --color-text: #e6ebf5;
+  --color-text-muted: #97a3bd;
+  --color-text-subtle: #6b7896;
+  --color-text-inverted: #0b0f1a;
+  --color-overlay: rgba(4, 7, 14, 0.66);
+
+  /* ---- Status ---- */
+  --color-danger-500: #f87171;
+  --color-danger-600: #ef4444;
+  --color-warning-500: #fbbf24;
+  --color-warning-600: #f59e0b;
+  --color-success-500: #34d399;
+  --color-success-600: #10b981;
+  --color-info-500: #38bdf8;
+
+  /* ---- Semantic runtime colors (category → hue) ----
+     Each has a solid base, a soft translucent fill, and a border. */
+  --rt-callstack: #3b82f6; /* Call Stack — blue */
+  --rt-callstack-soft: rgba(59, 130, 246, 0.14);
+  --rt-heap: #1e3a8a; /* Memory Heap — deep blue */
+  --rt-heap-soft: rgba(30, 58, 138, 0.22);
+  --rt-webapi: #22c55e; /* Web APIs — green */
+  --rt-webapi-soft: rgba(34, 197, 94, 0.14);
+  --rt-nodeapi: #10b981; /* Node.js APIs — emerald */
+  --rt-nodeapi-soft: rgba(16, 185, 129, 0.14);
+  --rt-taskqueue: #f97316; /* Task / Macrotask Queue — orange */
+  --rt-taskqueue-soft: rgba(249, 115, 22, 0.14);
+  --rt-microtask: #a855f7; /* Microtask Queue — purple */
+  --rt-microtask-soft: rgba(168, 85, 247, 0.16);
+  --rt-eventloop: #eab308; /* Event Loop — yellow */
+  --rt-eventloop-soft: rgba(234, 179, 8, 0.14);
+  --rt-libuv: #fb7185; /* libuv — coral */
+  --rt-libuv-soft: rgba(251, 113, 133, 0.14);
+  --rt-threadpool: #ec4899; /* Thread Pool — pink */
+  --rt-threadpool-soft: rgba(236, 72, 153, 0.14);
+  --rt-os: #94a3b8; /* Operating System — grey */
+  --rt-os-soft: rgba(148, 163, 184, 0.14);
+  --rt-rendering: #60a5fa; /* Rendering Pipeline — light blue */
+  --rt-rendering-soft: rgba(96, 165, 250, 0.14);
+  --rt-network: #06b6d4; /* Network I/O — cyan */
+  --rt-network-soft: rgba(6, 182, 212, 0.14);
+  --rt-websocket: #2dd4bf; /* WebSocket — turquoise */
+  --rt-websocket-soft: rgba(45, 212, 191, 0.16);
+  --rt-emitter: #d946ef; /* EventEmitter — magenta */
+  --rt-emitter-soft: rgba(217, 70, 239, 0.14);
+  --rt-streams: #6366f1; /* Streams — indigo */
+  --rt-streams-soft: rgba(99, 102, 241, 0.16);
+  --rt-backpressure: #ef4444; /* Backpressure — red */
+  --rt-backpressure-soft: rgba(239, 68, 68, 0.14);
+  --rt-worker: #8b5cf6; /* Worker Threads — violet */
+  --rt-worker-soft: rgba(139, 92, 246, 0.16);
+  --rt-engine: #0ea5e9; /* JS Engine / V8 — sky */
+  --rt-engine-soft: rgba(14, 165, 233, 0.14);
+
+  /* ---- Execution states (shared across the simulator) ---- */
+  --state-current: #fde68a; /* current line / active — soft yellow */
+  --state-current-soft: rgba(253, 230, 138, 0.16);
+  --state-waiting: #fbbf24; /* amber */
+  --state-waiting-soft: rgba(251, 191, 36, 0.14);
+  --state-blocked: #ef4444;
+  --state-completed: #34d399;
+  --state-idle: #6b7896;
+
+  /* ---- Typography ---- */
+  --font-family-base: ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", sans-serif;
+  --font-family-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --font-size-2xs: 0.6875rem; /* 11px */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.8125rem; /* 13px */
+  --font-size-md: 0.9375rem; /* 15px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 2rem; /* 32px */
+  --font-size-3xl: 3rem; /* 48px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+  --line-height-relaxed: 1.7;
+
+  --letter-spacing-tight: -0.01em;
+  --letter-spacing-wide: 0.02em;
+  --letter-spacing-caps: 0.08em;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --space-2xs: 0.125rem; /* 2 */
+  --space-xs: 0.25rem; /* 4 */
+  --space-sm: 0.5rem; /* 8 */
+  --space-md: 0.75rem; /* 12 */
+  --space-lg: 1rem; /* 16 */
+  --space-xl: 1.5rem; /* 24 */
+  --space-2xl: 2.5rem; /* 40 */
+  --space-3xl: 4rem; /* 64 */
+
+  /* ---- Radius ---- */
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 18px;
+  --radius-full: 999px;
+
+  /* ---- Elevation ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 0 1px rgba(99, 102, 241, 0.4),
+    0 0 24px rgba(99, 102, 241, 0.25);
+
+  /* ---- Motion ---- */
+  --duration-instant: 80ms;
+  --duration-fast: 140ms;
+  --duration-base: 240ms;
+  --duration-slow: 420ms;
+  --duration-token: 550ms; /* an execution token moving between nodes */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: var(--duration-fast) var(--ease-standard);
+
+  /* ---- Layout ---- */
+  --topbar-height: 52px;
+  --sidebar-width: 232px;
+  --rightpanel-width: 340px;
+  --bottompanel-height: 200px;
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-drawer: 200;
+  --z-dialog: 300;
+  --z-toast: 400;
+}
+
+/* Reduced motion — honour the OS setting. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-instant: 0ms;
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+    --duration-token: 0ms;
+  }
+}
+
+/* App-level opt-out toggle (Settings → reduced motion). */
+:root[data-motion="reduced"] {
+  --duration-instant: 0ms;
+  --duration-fast: 0ms;
+  --duration-base: 0ms;
+  --duration-slow: 0ms;
+  --duration-token: 0ms;
+}
+
+/* ---- Light theme ---- */
+:root[data-theme="light"] {
+  --color-surface-0: #f6f8fc;
+  --color-surface-1: #ffffff;
+  --color-surface-2: #ffffff;
+  --color-surface-3: #eef2f9;
+  --color-border: #dde3ee;
+  --color-border-strong: #c3ccdd;
+  --color-text: #0f172a;
+  --color-text-muted: #55627d;
+  --color-text-subtle: #8492ab;
+  --color-text-inverted: #ffffff;
+  --color-overlay: rgba(15, 23, 42, 0.4);
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 6px 20px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 18px 48px rgba(15, 23, 42, 0.16);
+}

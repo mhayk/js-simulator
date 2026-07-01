@@ -1,0 +1,73 @@
+/* Baseline styles + shared runtime-category helper. */
+@import "../tokens/tokens.css";
+
+.ds-root {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background: var(--color-surface-0);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.ds-root *,
+.ds-root *::before,
+.ds-root *::after {
+  box-sizing: border-box;
+}
+
+.ds-root :focus-visible {
+  outline: 2px solid var(--color-brand-400);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Visually-hidden but accessible to screen readers. */
+.ds-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/**
+ * Runtime-category helper: any element with `data-rt="<category>"` exposes
+ * that category's colour as `--rt` (solid), `--rt-soft` (fill), used by
+ * RuntimeNode, MessageToken, StatusBadge, connection lines, etc. Colour is
+ * paired with icon + label at the component level — never the only signal.
+ */
+[data-rt="callstack"] { --rt: var(--rt-callstack); --rt-soft: var(--rt-callstack-soft); }
+[data-rt="heap"] { --rt: var(--rt-heap); --rt-soft: var(--rt-heap-soft); }
+[data-rt="webapi"] { --rt: var(--rt-webapi); --rt-soft: var(--rt-webapi-soft); }
+[data-rt="nodeapi"] { --rt: var(--rt-nodeapi); --rt-soft: var(--rt-nodeapi-soft); }
+[data-rt="taskqueue"] { --rt: var(--rt-taskqueue); --rt-soft: var(--rt-taskqueue-soft); }
+[data-rt="microtask"] { --rt: var(--rt-microtask); --rt-soft: var(--rt-microtask-soft); }
+[data-rt="eventloop"] { --rt: var(--rt-eventloop); --rt-soft: var(--rt-eventloop-soft); }
+[data-rt="libuv"] { --rt: var(--rt-libuv); --rt-soft: var(--rt-libuv-soft); }
+[data-rt="threadpool"] { --rt: var(--rt-threadpool); --rt-soft: var(--rt-threadpool-soft); }
+[data-rt="os"] { --rt: var(--rt-os); --rt-soft: var(--rt-os-soft); }
+[data-rt="rendering"] { --rt: var(--rt-rendering); --rt-soft: var(--rt-rendering-soft); }
+[data-rt="network"] { --rt: var(--rt-network); --rt-soft: var(--rt-network-soft); }
+[data-rt="websocket"] { --rt: var(--rt-websocket); --rt-soft: var(--rt-websocket-soft); }
+[data-rt="emitter"] { --rt: var(--rt-emitter); --rt-soft: var(--rt-emitter-soft); }
+[data-rt="streams"] { --rt: var(--rt-streams); --rt-soft: var(--rt-streams-soft); }
+[data-rt="backpressure"] { --rt: var(--rt-backpressure); --rt-soft: var(--rt-backpressure-soft); }
+[data-rt="worker"] { --rt: var(--rt-worker); --rt-soft: var(--rt-worker-soft); }
+[data-rt="engine"] { --rt: var(--rt-engine); --rt-soft: var(--rt-engine-soft); }
+
+/* Sensible defaults for headings/paragraphs inside app content. */
+.ds-root h1, .ds-root h2, .ds-root h3, .ds-root h4 {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+.ds-root code, .ds-root kbd, .ds-root pre {
+  font-family: var(--font-family-mono);
+}

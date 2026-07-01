@@ -1,0 +1,24 @@
+.ds-stack {
+  display: flex;
+}
+.ds-stack--vertical {
+  flex-direction: column;
+}
+.ds-stack--horizontal {
+  flex-direction: row;
+}
+.ds-stack--wrap {
+  flex-wrap: wrap;
+}
+
+/* Gap steps map to the spacing scale. */
+.ds-stack--gap-xs { gap: var(--space-xs); }
+.ds-stack--gap-sm { gap: var(--space-sm); }
+.ds-stack--gap-md { gap: var(--space-md); }
+.ds-stack--gap-lg { gap: var(--space-lg); }
+.ds-stack--gap-xl { gap: var(--space-xl); }
+
+.ds-stack--align-start { align-items: flex-start; }
+.ds-stack--align-center { align-items: center; }
+.ds-stack--align-end { align-items: flex-end; }
+.ds-stack--align-stretch { align-items: stretch; }

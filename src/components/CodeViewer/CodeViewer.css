@@ -1,0 +1,90 @@
+.ds-code {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-0);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.ds-code__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+.ds-code__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  flex: none;
+}
+.ds-code__dot--r { background: #ff5f57; }
+.ds-code__dot--y { background: #febc2e; }
+.ds-code__dot--g { background: #28c840; }
+.ds-code__filename { margin-left: var(--space-sm); color: var(--color-text); }
+
+.ds-code__body {
+  overflow: auto;
+  padding: var(--space-sm) 0;
+  flex: 1;
+}
+
+.ds-code__line {
+  display: flex;
+  align-items: baseline;
+  padding: 0 var(--space-md) 0 0;
+  border-left: 2px solid transparent;
+  transition: background var(--duration-fast) var(--ease-standard);
+  white-space: pre;
+}
+.ds-code__gutter {
+  flex: none;
+  width: 3.5ch;
+  padding: 0 var(--space-sm);
+  text-align: right;
+  color: var(--color-text-subtle);
+  user-select: none;
+  font-size: var(--font-size-xs);
+}
+.ds-code__text {
+  color: var(--color-text);
+  padding-left: var(--space-sm);
+  min-height: 1.6em;
+}
+
+/* Current line */
+.ds-code__line--current {
+  background: var(--state-current-soft);
+  border-left-color: var(--state-current);
+}
+.ds-code__line--current .ds-code__gutter {
+  color: var(--state-current);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Breakpoint */
+.ds-code__line--breakpoint .ds-code__gutter {
+  color: var(--color-danger-500);
+}
+.ds-code__line--breakpoint .ds-code__gutter::before {
+  content: "●";
+  margin-right: 4px;
+}
+
+/* Naive token tint via data attributes set by the highlighter */
+.ds-tok-kw { color: #c792ea; }
+.ds-tok-str { color: #c3e88d; }
+.ds-tok-num { color: #f78c6c; }
+.ds-tok-com { color: var(--color-text-subtle); font-style: italic; }
+.ds-tok-fn { color: #82aaff; }
+.ds-tok-punct { color: var(--color-text-muted); }

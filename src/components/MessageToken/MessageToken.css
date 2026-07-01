@@ -1,0 +1,99 @@
+.ds-token {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  background: var(--color-surface-2);
+  border: 1px solid var(--rt, var(--color-border-strong));
+  border-left-width: 3px;
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+  position: relative;
+}
+
+.ds-token--sm {
+  font-size: var(--font-size-2xs);
+  padding: 2px var(--space-xs);
+  gap: var(--space-xs);
+}
+
+.ds-token__glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex: none;
+  border-radius: var(--radius-xs);
+  background: var(--rt-soft, var(--color-surface-3));
+  color: var(--rt, var(--color-text-muted));
+  font-size: 11px;
+}
+
+.ds-token__label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ds-token__meta {
+  color: var(--color-text-subtle);
+  font-size: var(--font-size-2xs);
+}
+
+/* Priority marker (e.g. process.nextTick) */
+.ds-token__prio {
+  font-size: 9px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-caps);
+  color: var(--rt, var(--color-warning-500));
+  border: 1px solid currentColor;
+  border-radius: var(--radius-xs);
+  padding: 0 3px;
+  flex: none;
+}
+
+/* States */
+.ds-token--active {
+  border-color: var(--state-current);
+  box-shadow: 0 0 0 1px var(--state-current), 0 0 16px var(--state-current-soft);
+}
+.ds-token--waiting {
+  opacity: 0.85;
+  border-style: dashed;
+}
+.ds-token--blocked {
+  border-color: var(--state-blocked);
+}
+.ds-token--completed {
+  opacity: 0.5;
+}
+.ds-token--completed .ds-token__label {
+  text-decoration: line-through;
+}
+.ds-token--error {
+  border-color: var(--color-danger-500);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.ds-token--active::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: ds-token-flash 1s var(--ease-standard) infinite;
+  box-shadow: 0 0 0 1px var(--state-current);
+}
+@keyframes ds-token-flash {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-token--active::after { animation: none; }
+}
