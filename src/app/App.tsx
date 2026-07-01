@@ -9,6 +9,7 @@ import { LibuvExplorer } from "./pages/LibuvExplorer";
 import { NetworkExplorer } from "./pages/NetworkExplorer";
 import { EventEmitterExplorer } from "./pages/EventEmitterExplorer";
 import { StreamsExplorer } from "./pages/StreamsExplorer";
+import { WorkerThreadsExplorer } from "./pages/WorkerThreadsExplorer";
 import { Settings } from "./pages/Settings";
 import { ComingSoon } from "./pages/ComingSoon";
 import { NAV_ITEMS } from "./nav";
@@ -30,6 +31,7 @@ export function App() {
             <Route path="emitter" element={<EventEmitterExplorer />} />
             <Route path="streams" element={<StreamsExplorer />} />
             <Route path="backpressure" element={<StreamsExplorer initialMode="backpressure" />} />
+            <Route path="workers" element={<WorkerThreadsExplorer />} />
             <Route path="settings" element={<Settings />} />
             {SOON_ROUTES.map((item) => (
               <Route
