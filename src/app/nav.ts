@@ -22,7 +22,7 @@ export const NAV_ITEMS: NavItem[] = [
   { to: "/node", label: "Node.js Runtime", glyph: "◆", rt: "nodeapi", section: "Runtimes", soon: true },
   { to: "/compare", label: "Browser vs Node", glyph: "⇋", rt: "engine", section: "Runtimes", soon: true },
 
-  { to: "/libuv", label: "libuv Thread Pool", glyph: "▦", rt: "threadpool", section: "Deep dives", soon: true },
+  { to: "/libuv", label: "libuv Thread Pool", glyph: "▦", rt: "threadpool", section: "Deep dives" },
   { to: "/network", label: "Network I/O", glyph: "≋", rt: "network", section: "Deep dives", soon: true },
   { to: "/websocket", label: "WebSocket", glyph: "⇄", rt: "websocket", section: "Deep dives" },
   { to: "/broadcast", label: "Broadcast & Rooms", glyph: "⋔", rt: "websocket", section: "Deep dives" },

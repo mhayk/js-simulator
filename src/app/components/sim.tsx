@@ -1,6 +1,9 @@
 import type { ReactNode } from "react";
-import { MediaControls, StatusBadge, Timeline } from "js-simulator";
+import { AnimatePresence, motion } from "framer-motion";
+import { MediaControls, MessageToken, StatusBadge, Timeline } from "js-simulator";
 import type { RuntimeCategory, TimelineStepMeta } from "js-simulator";
+import type { LaneToken } from "../simulation/laneSim";
+import { useSettings } from "../theme";
 import type { useStepPlayer } from "../simulation/useStepPlayer";
 
 type Player = ReturnType<typeof useStepPlayer>;
@@ -83,6 +86,51 @@ export function Narration({
       <div className="sim__explain-label">Step {index + 1} — what&apos;s happening</div>
       <div className="sim__explain-text">{explanation}</div>
       {showNote && note && <div className="sim__note">{note}</div>}
+    </div>
+  );
+}
+
+/** Animated vertical list of tokens in a lane (shared-layout movement). */
+export function LaneTokens({
+  tokens,
+  size = "sm",
+  reverse = false,
+}: {
+  tokens: LaneToken[];
+  size?: "sm" | "md";
+  reverse?: boolean;
+}) {
+  const reduced = useSettings().motion === "reduced";
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: reverse ? "column-reverse" : "column",
+        gap: "var(--space-xs)",
+      }}
+    >
+      <AnimatePresence mode="popLayout">
+        {tokens.map((t) => (
+          <motion.div
+            key={t.id}
+            layout
+            layoutId={t.id}
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.92 }}
+            transition={{ duration: reduced ? 0 : 0.35, ease: [0.2, 0, 0, 1] }}
+          >
+            <MessageToken
+              label={t.label}
+              kind={t.kind}
+              state={t.state}
+              meta={t.meta}
+              priority={t.priority}
+              size={size}
+            />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 }
