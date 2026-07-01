@@ -97,7 +97,7 @@ export function EventLoopExplorer() {
     [scenarioId],
   );
 
-  const player = useStepPlayer(scenario.steps.length);
+  const player = useStepPlayer(scenario.steps.length, scenario.id);
   const step = scenario.steps[player.index];
 
   const apiCategory = scenario.env === "browser" ? "webapi" : "nodeapi";

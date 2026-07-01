@@ -25,6 +25,7 @@ export const NAV_ITEMS: NavItem[] = [
   { to: "/libuv", label: "libuv Thread Pool", glyph: "▦", rt: "threadpool", section: "Deep dives", soon: true },
   { to: "/network", label: "Network I/O", glyph: "≋", rt: "network", section: "Deep dives", soon: true },
   { to: "/websocket", label: "WebSocket", glyph: "⇄", rt: "websocket", section: "Deep dives" },
+  { to: "/broadcast", label: "Broadcast & Rooms", glyph: "⋔", rt: "websocket", section: "Deep dives" },
   { to: "/streams", label: "Streams", glyph: "≈", rt: "streams", section: "Deep dives", soon: true },
   { to: "/backpressure", label: "Backpressure", glyph: "⊗", rt: "backpressure", section: "Deep dives", soon: true },
   { to: "/emitter", label: "EventEmitter", glyph: "⊹", rt: "emitter", section: "Deep dives", soon: true },

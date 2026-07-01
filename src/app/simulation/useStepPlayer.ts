@@ -2,8 +2,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const BASE_STEP_MS = 1500;
 
-/** Drives step-by-step playback over a fixed-length sequence. */
-export function useStepPlayer(total: number) {
+/**
+ * Drives step-by-step playback over a fixed-length sequence.
+ * `resetKey` forces a reset to step 0 when it changes (e.g. switching to a
+ * different scenario that happens to have the same number of steps).
+ */
+export function useStepPlayer(total: number, resetKey?: string) {
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
@@ -57,11 +61,12 @@ export function useStepPlayer(total: number) {
     return clear;
   }, [playing, index, speed, atEnd]);
 
-  // Reset to start when the sequence changes (scenario switch).
+  // Reset to start when the sequence changes (scenario switch) — keyed on
+  // both length and an explicit resetKey (scenarios of equal length differ).
   useEffect(() => {
     setIndex(0);
     setPlaying(false);
-  }, [total]);
+  }, [total, resetKey]);
 
   return {
     index,
