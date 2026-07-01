@@ -14,8 +14,8 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { to: "/", label: "Dashboard", glyph: "◧", section: "Main" },
-  { to: "/learn", label: "Learn", glyph: "◵", section: "Main", soon: true },
-  { to: "/playground", label: "Playground", glyph: "❯", section: "Main", soon: true },
+  { to: "/learn", label: "Learn", glyph: "◵", section: "Main" },
+  { to: "/playground", label: "Playground", glyph: "❯", section: "Main" },
 
   { to: "/event-loop", label: "Event Loop", glyph: "↻", rt: "eventloop", section: "Runtimes" },
   { to: "/browser", label: "Browser Runtime", glyph: "◈", rt: "webapi", section: "Runtimes" },
@@ -35,8 +35,8 @@ export const NAV_ITEMS: NavItem[] = [
   { to: "/socketio", label: "Socket.IO", glyph: "◎", rt: "websocket", section: "Deep dives" },
   { to: "/scaling", label: "WebSocket Scaling", glyph: "⤨", rt: "websocket", section: "Deep dives" },
 
-  { to: "/challenges", label: "Challenges", glyph: "⚑", section: "Practice", soon: true },
-  { to: "/progress", label: "Progress", glyph: "◔", section: "Practice", soon: true },
+  { to: "/challenges", label: "Challenges", glyph: "⚑", section: "Practice" },
+  { to: "/progress", label: "Progress", glyph: "◔", section: "Practice" },
   { to: "/settings", label: "Settings", glyph: "⚙", section: "Practice" },
 ];
 

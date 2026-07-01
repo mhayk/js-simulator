@@ -17,6 +17,10 @@ import { SocketIOExplorer } from "./pages/SocketIOExplorer";
 import { ScalingSimulator } from "./pages/ScalingSimulator";
 import { BrowserRuntime } from "./pages/BrowserRuntime";
 import { NodeRuntime } from "./pages/NodeRuntime";
+import { Learn } from "./pages/Learn";
+import { Playground } from "./pages/Playground";
+import { Challenges } from "./pages/Challenges";
+import { Progress } from "./pages/Progress";
 import { Settings } from "./pages/Settings";
 import { ComingSoon } from "./pages/ComingSoon";
 import { NAV_ITEMS } from "./nav";
@@ -30,6 +34,10 @@ export function App() {
         <Routes>
           <Route element={<AppShell />}>
             <Route index element={<Dashboard />} />
+            <Route path="learn" element={<Learn />} />
+            <Route path="playground" element={<Playground />} />
+            <Route path="challenges" element={<Challenges />} />
+            <Route path="progress" element={<Progress />} />
             <Route path="event-loop" element={<EventLoopExplorer />} />
             <Route path="browser" element={<BrowserRuntime />} />
             <Route path="node" element={<NodeRuntime />} />
