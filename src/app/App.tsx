@@ -11,6 +11,10 @@ import { EventEmitterExplorer } from "./pages/EventEmitterExplorer";
 import { StreamsExplorer } from "./pages/StreamsExplorer";
 import { WorkerThreadsExplorer } from "./pages/WorkerThreadsExplorer";
 import { RenderingSimulator } from "./pages/RenderingSimulator";
+import { CompareBrowserNode } from "./pages/CompareBrowserNode";
+import { RealtimeCompare } from "./pages/RealtimeCompare";
+import { SocketIOExplorer } from "./pages/SocketIOExplorer";
+import { ScalingSimulator } from "./pages/ScalingSimulator";
 import { Settings } from "./pages/Settings";
 import { ComingSoon } from "./pages/ComingSoon";
 import { NAV_ITEMS } from "./nav";
@@ -34,6 +38,10 @@ export function App() {
             <Route path="backpressure" element={<StreamsExplorer initialMode="backpressure" />} />
             <Route path="workers" element={<WorkerThreadsExplorer />} />
             <Route path="rendering" element={<RenderingSimulator />} />
+            <Route path="compare" element={<CompareBrowserNode />} />
+            <Route path="realtime" element={<RealtimeCompare />} />
+            <Route path="socketio" element={<SocketIOExplorer />} />
+            <Route path="scaling" element={<ScalingSimulator />} />
             <Route path="settings" element={<Settings />} />
             {SOON_ROUTES.map((item) => (
               <Route

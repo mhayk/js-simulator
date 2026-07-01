@@ -1,0 +1,55 @@
+.scale {
+  padding: var(--space-xl);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.scale__head { margin-bottom: var(--space-lg); display: flex; align-items: flex-start; gap: var(--space-lg); flex-wrap: wrap; }
+.scale__head-main { flex: 1; min-width: 280px; }
+.scale__title { font-size: var(--font-size-2xl); margin: var(--space-xs) 0; }
+.scale__lead { color: var(--color-text-muted); max-width: 70ch; line-height: var(--line-height-relaxed); }
+.scale__eyebrow { font-size: var(--font-size-2xs); letter-spacing: var(--letter-spacing-caps); text-transform: uppercase; color: var(--rt-websocket); font-weight: var(--font-weight-semibold); }
+
+.scale__diagram {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  align-items: stretch;
+}
+.scale__row { display: grid; gap: var(--space-md); }
+.scale__row--2 { grid-template-columns: 1fr 1fr; }
+.scale__connector { text-align: center; color: var(--color-text-subtle); font-size: var(--font-size-xs); }
+
+.scale__box {
+  padding: var(--space-md) var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-1);
+  position: relative;
+  transition: all var(--duration-base) var(--ease-standard);
+}
+.scale__box[data-rt]::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--rt); border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+.scale__box-title { font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); }
+.scale__box-sub { color: var(--color-text-muted); font-size: var(--font-size-xs); margin-top: 2px; }
+
+.scale__box--recv { border-color: var(--color-success-500); box-shadow: 0 0 0 1px var(--color-success-500), 0 0 24px -8px var(--color-success-500); }
+.scale__box--miss { border-color: var(--color-danger-500); opacity: 0.7; }
+.scale__box--miss .scale__box-sub { color: var(--color-danger-500); }
+.scale__box--active { border-color: var(--rt-websocket); box-shadow: 0 0 0 1px var(--rt-websocket), 0 0 24px -8px var(--rt-websocket); }
+.scale__box--dim { opacity: 0.4; }
+
+.scale__redis { border-style: dashed; }
+
+.scale__verdict {
+  margin-top: var(--space-lg);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--rt, var(--color-brand-500));
+  background: var(--color-surface-1);
+  line-height: var(--line-height-relaxed);
+}
+.scale__verdict strong { color: var(--color-text); }

@@ -20,7 +20,7 @@ export const NAV_ITEMS: NavItem[] = [
   { to: "/event-loop", label: "Event Loop", glyph: "↻", rt: "eventloop", section: "Runtimes" },
   { to: "/browser", label: "Browser Runtime", glyph: "◈", rt: "webapi", section: "Runtimes", soon: true },
   { to: "/node", label: "Node.js Runtime", glyph: "◆", rt: "nodeapi", section: "Runtimes", soon: true },
-  { to: "/compare", label: "Browser vs Node", glyph: "⇋", rt: "engine", section: "Runtimes", soon: true },
+  { to: "/compare", label: "Browser vs Node", glyph: "⇋", rt: "engine", section: "Runtimes" },
   { to: "/rendering", label: "Rendering & UI", glyph: "▧", rt: "rendering", section: "Runtimes" },
 
   { to: "/libuv", label: "libuv Thread Pool", glyph: "▦", rt: "threadpool", section: "Deep dives" },
@@ -31,6 +31,9 @@ export const NAV_ITEMS: NavItem[] = [
   { to: "/backpressure", label: "Backpressure", glyph: "⊗", rt: "backpressure", section: "Deep dives" },
   { to: "/emitter", label: "EventEmitter", glyph: "⊹", rt: "emitter", section: "Deep dives" },
   { to: "/workers", label: "Worker Threads", glyph: "◑", rt: "worker", section: "Deep dives" },
+  { to: "/realtime", label: "Realtime protocols", glyph: "⇌", rt: "network", section: "Deep dives" },
+  { to: "/socketio", label: "Socket.IO", glyph: "◎", rt: "websocket", section: "Deep dives" },
+  { to: "/scaling", label: "WebSocket Scaling", glyph: "⤨", rt: "websocket", section: "Deep dives" },
 
   { to: "/challenges", label: "Challenges", glyph: "⚑", section: "Practice", soon: true },
   { to: "/progress", label: "Progress", glyph: "◔", section: "Practice", soon: true },
