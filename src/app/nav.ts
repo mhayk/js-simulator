@@ -21,6 +21,7 @@ export const NAV_ITEMS: NavItem[] = [
   { to: "/browser", label: "Browser Runtime", glyph: "◈", rt: "webapi", section: "Runtimes", soon: true },
   { to: "/node", label: "Node.js Runtime", glyph: "◆", rt: "nodeapi", section: "Runtimes", soon: true },
   { to: "/compare", label: "Browser vs Node", glyph: "⇋", rt: "engine", section: "Runtimes", soon: true },
+  { to: "/rendering", label: "Rendering & UI", glyph: "▧", rt: "rendering", section: "Runtimes" },
 
   { to: "/libuv", label: "libuv Thread Pool", glyph: "▦", rt: "threadpool", section: "Deep dives" },
   { to: "/network", label: "Network I/O", glyph: "≋", rt: "network", section: "Deep dives" },
