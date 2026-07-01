@@ -15,6 +15,8 @@ import { CompareBrowserNode } from "./pages/CompareBrowserNode";
 import { RealtimeCompare } from "./pages/RealtimeCompare";
 import { SocketIOExplorer } from "./pages/SocketIOExplorer";
 import { ScalingSimulator } from "./pages/ScalingSimulator";
+import { BrowserRuntime } from "./pages/BrowserRuntime";
+import { NodeRuntime } from "./pages/NodeRuntime";
 import { Settings } from "./pages/Settings";
 import { ComingSoon } from "./pages/ComingSoon";
 import { NAV_ITEMS } from "./nav";
@@ -29,6 +31,8 @@ export function App() {
           <Route element={<AppShell />}>
             <Route index element={<Dashboard />} />
             <Route path="event-loop" element={<EventLoopExplorer />} />
+            <Route path="browser" element={<BrowserRuntime />} />
+            <Route path="node" element={<NodeRuntime />} />
             <Route path="websocket" element={<WebSocketExplorer />} />
             <Route path="broadcast" element={<BroadcastSimulator />} />
             <Route path="libuv" element={<LibuvExplorer />} />

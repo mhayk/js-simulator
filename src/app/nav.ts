@@ -18,8 +18,8 @@ export const NAV_ITEMS: NavItem[] = [
   { to: "/playground", label: "Playground", glyph: "❯", section: "Main", soon: true },
 
   { to: "/event-loop", label: "Event Loop", glyph: "↻", rt: "eventloop", section: "Runtimes" },
-  { to: "/browser", label: "Browser Runtime", glyph: "◈", rt: "webapi", section: "Runtimes", soon: true },
-  { to: "/node", label: "Node.js Runtime", glyph: "◆", rt: "nodeapi", section: "Runtimes", soon: true },
+  { to: "/browser", label: "Browser Runtime", glyph: "◈", rt: "webapi", section: "Runtimes" },
+  { to: "/node", label: "Node.js Runtime", glyph: "◆", rt: "nodeapi", section: "Runtimes" },
   { to: "/compare", label: "Browser vs Node", glyph: "⇋", rt: "engine", section: "Runtimes" },
   { to: "/rendering", label: "Rendering & UI", glyph: "▧", rt: "rendering", section: "Runtimes" },
 
