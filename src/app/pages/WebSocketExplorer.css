@@ -1,0 +1,172 @@
+.wse {
+  display: grid;
+  grid-template-columns: 440px 1fr;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  height: 100%;
+  min-height: 0;
+  align-items: start;
+}
+
+.wse__left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: sticky;
+  top: 0;
+}
+.wse__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+.wse__title { font-size: var(--font-size-lg); flex: 1; }
+
+.wse__transport {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.wse__explain {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--rt-websocket);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-1);
+}
+.wse__explain-label {
+  font-size: var(--font-size-2xs);
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+  margin-bottom: var(--space-xs);
+}
+.wse__explain-text { line-height: var(--line-height-relaxed); }
+.wse__note {
+  margin-top: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  display: flex;
+  gap: var(--space-sm);
+}
+.wse__note::before { content: "💡"; }
+
+.wse__right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-width: 0;
+}
+
+/* Connection status bar */
+.wse__conn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-1);
+}
+.wse__conn-track {
+  flex: 1;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+.wse__conn-step {
+  flex: 1;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-3);
+}
+.wse__conn-step--on { background: var(--rt-websocket); }
+
+/* The three-lane diagram */
+.wse__diagram {
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  gap: var(--space-md);
+  align-items: stretch;
+}
+@media (max-width: 1200px) {
+  .wse__diagram { grid-template-columns: 1fr; }
+}
+
+.wse__endpoint-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.wse__section-label {
+  font-size: var(--font-size-2xs);
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-text-subtle);
+  text-transform: uppercase;
+  margin-top: var(--space-xs);
+}
+.wse__listeners { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+
+/* Network channel */
+.wse__channel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-sm);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 8px,
+      var(--rt-network-soft) 8px,
+      var(--rt-network-soft) 16px
+    );
+  position: relative;
+  min-height: 120px;
+}
+.wse__channel-label {
+  position: absolute;
+  top: var(--space-xs);
+  font-size: var(--font-size-2xs);
+  letter-spacing: var(--letter-spacing-caps);
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+.wse__frame {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+}
+.wse__frame--up { flex-direction: row; }
+.wse__frame--down { flex-direction: row-reverse; }
+.wse__frame-arrow {
+  font-size: var(--font-size-md);
+  color: var(--rt-websocket);
+  flex: none;
+}
+.wse__frame-empty {
+  color: var(--color-text-subtle);
+  font-size: var(--font-size-xs);
+  font-style: italic;
+  text-align: center;
+}
+
+.wse__log { height: 200px; }
+
+@media (max-width: 1100px) {
+  .wse { grid-template-columns: 1fr; }
+  .wse__left { position: static; }
+}
