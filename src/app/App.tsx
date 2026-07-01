@@ -6,6 +6,7 @@ import { EventLoopExplorer } from "./pages/EventLoopExplorer";
 import { WebSocketExplorer } from "./pages/WebSocketExplorer";
 import { BroadcastSimulator } from "./pages/BroadcastSimulator";
 import { LibuvExplorer } from "./pages/LibuvExplorer";
+import { NetworkExplorer } from "./pages/NetworkExplorer";
 import { Settings } from "./pages/Settings";
 import { ComingSoon } from "./pages/ComingSoon";
 import { NAV_ITEMS } from "./nav";
@@ -23,6 +24,7 @@ export function App() {
             <Route path="websocket" element={<WebSocketExplorer />} />
             <Route path="broadcast" element={<BroadcastSimulator />} />
             <Route path="libuv" element={<LibuvExplorer />} />
+            <Route path="network" element={<NetworkExplorer />} />
             <Route path="settings" element={<Settings />} />
             {SOON_ROUTES.map((item) => (
               <Route
