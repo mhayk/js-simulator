@@ -28,6 +28,12 @@
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: var(--space-lg);
 }
+/* Raise featured cards above the near-black page so they read as panels,
+   not just a faint outline on the same surface. */
+.card-grid .ds-card {
+  background: var(--color-surface-1);
+  border-color: var(--color-border-strong);
+}
 
 /* Dashboard hero */
 .hero {
@@ -80,7 +86,11 @@
   color: var(--rt, var(--color-text));
   font-size: var(--font-size-lg);
 }
-.nav-card__title { font-weight: var(--font-weight-semibold); }
+.nav-card__title {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+.ds-card--interactive:hover .nav-card__title { color: var(--rt, var(--color-brand-400)); }
 .nav-card__desc { color: var(--color-text-muted); font-size: var(--font-size-sm); }
 
 /* Coming soon */

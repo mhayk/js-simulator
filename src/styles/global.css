@@ -17,6 +17,20 @@
   box-sizing: border-box;
 }
 
+/* Interactive elements inherit text colour instead of the UA defaults
+   (link blue / visited-purple, and the dark `ButtonText` on <button>), which
+   otherwise wash out titles inside cards and buttons. `:where()` keeps these
+   at zero specificity so any component class (e.g. .ds-button--primary,
+   .sidebar__link) still wins. */
+:where(.ds-root a) {
+  color: inherit;
+  text-decoration: none;
+}
+:where(.ds-root button) {
+  color: inherit;
+  font-family: inherit;
+}
+
 .ds-root :focus-visible {
   outline: 2px solid var(--color-brand-400);
   outline-offset: 2px;
